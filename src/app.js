@@ -19,16 +19,19 @@ function main (responses) {
   const vtree$ = responses.JSONP
     .filter((res$) => res$.request === USER_URL)
     .mergeAll()
-    .startWith({text: 'Loading...'})
-    .map((json) =>
-      h('div.container', [
-        h1(`${json.mac} (${json.ip})`),
-        p(`Data download used: ${toMb(json.data_download_used)}`),
-        p(`Data upload used: ${toMb(json.data_upload_used)}`),
-        p(`Data total used: ${toMb(json.data_total_used)}`),
-        p(`Data total limit: ${toMb(json.data_total_limit)}`),
-        p(`Remaining data: ${remainingMb(json)}`)
-      ])
+    .startWith({loadingText: 'Loading...'})
+    .map((data) =>
+      h('div.container', data.loadingText
+        ? h1(data.loadingText)
+        : [
+          h1(`${data.mac} (${data.ip})`),
+          p(`Data download used: ${toMb(data.data_download_used)}`),
+          p(`Data upload used: ${toMb(data.data_upload_used)}`),
+          p(`Data total used: ${toMb(data.data_total_used)}`),
+          p(`Data total limit: ${toMb(data.data_total_limit)}`),
+          p(`Remaining data: ${remainingMb(data)}`)
+        ]
+      )
     )
 
   return {
