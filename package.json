@@ -1,0 +1,27 @@
+{
+  "name": "cycle-sj",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/webpack-dev-server --config webpack.config.js --inline --progress --profile --colors --display-error-details --display-cached --watch --content-base src/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Christoffer Skeppstedt <c.skeppstedt@gmail.com> (https://github.com/cskeppstedt/)",
+  "license": "MIT",
+  "dependencies": {
+    "@cycle/core": "^6.0.3",
+    "@cycle/dom": "^9.4.0",
+    "@cycle/http": "^8.2.2",
+    "@cycle/jsonp": "^5.0.1",
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "html-webpack-plugin": "^2.21.0",
+    "rx": "^4.1.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  }
+}
